@@ -1,0 +1,4 @@
+if you do not have a .env file, use port 2222, otherwise use the one in your .env
+
+GET '/'
+curl localhost:2222
