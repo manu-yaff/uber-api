@@ -1,14 +1,15 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import morgan from 'morgan'
+import userRouter from './routes/user.routes'
 
 dotenv.config()
 
 const PORT = process.env.PORT || 2222
 export const app = express()
 
-app.get('/', (req, res) => {
-  res.send({ message: 'welcome' })
-})
+app.use(morgan('dev'))
+app.use('/', userRouter)
 
 export const start = () => {
   app.listen(PORT, () => {
